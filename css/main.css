@@ -1,0 +1,82 @@
+
+@import url('./variables.css');
+@import url('./search.css');
+@import url('./pokemon-card.css');
+@import url('./battle.css');
+
+/* Layout principal */
+.main {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--spacing-lg);
+    max-width: 1600px;
+    margin: 0 auto;
+}
+
+/* Secciones principales */
+.left-section,
+.right-section {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-md);
+    min-width: 0; /* Evita overflow en grid */
+}
+
+.left-section {
+    grid-column: 1;
+}
+
+.right-section {
+    grid-column: 2;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+    .main {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-lg);
+    }
+
+    .left-section {
+        grid-column: 1;
+    }
+
+    .right-section {
+        grid-column: 1;
+    }
+}
+
+@media (max-width: 768px) {
+    .main {
+        gap: var(--spacing-md);
+        padding: var(--spacing-sm);
+    }
+
+    .left-section,
+    .right-section {
+        gap: var(--spacing-sm);
+    }
+
+    .block {
+        flex-basis: auto;
+    }
+
+    .listPokes,
+    .listInvoked {
+        flex-basis: auto;
+    }
+
+    .list-header {
+        flex-direction: column;
+        gap: var(--spacing-sm);
+        align-items: flex-start;
+    }
+
+    .list-header h2 {
+        font-size: 1.2rem;
+    }
+
+    .btn-clear {
+        width: 100%;
+    }
+}

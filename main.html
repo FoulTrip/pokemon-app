@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/main.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <main class="main">
+        <div class="left-section">
+            <div class="block">
+                <h1>Busca tu Pokemon</h1>
+                <div class="barSearch">
+                    <input type="text" id="pokename">
+                    <button id="searchClick">Buscar</button>
+                </div>
+
+                <div id="previewSearch"></div>
+            </div>
+
+            <div class="list-header">
+                <h2>Pokémones Guardados</h2>
+                <button id="clearListBtn" class="btn-clear">Limpiar Lista</button>
+            </div>
+            <div class="listPokes" id="listpokemons"></div>
+        </div>
+
+        <div class="right-section">
+            <div class="list-header">
+                <h2>Guerra de Pokemones</h2>
+                <div class="header-buttons">
+                    <button id="battleBtn" class="btn-battle">⚔️ Combatir</button>
+                    <button id="clearInvokedBtn" class="btn-clear">Limpiar Invocados</button>
+                </div>
+            </div>
+            <div class="listInvoked" id="listinvoked"></div>
+        </div>
+    </main>
+
+    <!-- Modal de Combate -->
+    <div id="battleModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>⚔️ Batalla Pokémon ⚔️</h2>
+            <div id="battleResult"></div>
+        </div>
+    </div>
+
+    <script type="module" src="./js/main.js"></script>
+</body>
+
+</html>

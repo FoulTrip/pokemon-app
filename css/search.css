@@ -1,0 +1,118 @@
+/* Estilos para el buscador */
+.block {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-md);
+    flex-shrink: 0;
+}
+
+.block h1 {
+    font-size: 1.8rem;
+    color: var(--color-primary);
+    font-weight: 600;
+}
+
+.block input {
+    padding: 12px 15px;
+    border: 2px solid var(--color-border);
+    outline: none;
+    border-radius: var(--border-radius);
+    font-size: 16px;
+    transition: var(--transition);
+}
+
+.block input:focus {
+    border-color: var(--color-secondary);
+    box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.1);
+}
+
+.barSearch {
+    display: flex;
+    gap: var(--spacing-sm);
+}
+
+.barSearch input {
+    flex-grow: 1;
+}
+
+.barSearch button {
+    border: 2px solid var(--color-secondary);
+    background-color: var(--color-secondary);
+    color: white;
+    padding: 12px 25px;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    font-weight: 500;
+    transition: var(--transition);
+}
+
+.barSearch button:hover {
+    background-color: #2980b9;
+    border-color: #2980b9;
+    transform: translateY(-1px);
+    box-shadow: 0 2px 8px var(--color-shadow);
+}
+
+.barSearch button:active {
+    transform: translateY(0);
+}
+
+/* Preview de búsqueda */
+.prevSearch {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-sm);
+}
+
+@media (max-width: 768px) {
+    .block h1 {
+        font-size: 1.5rem;
+    }
+
+    .barSearch button {
+        padding: 12px 15px;
+        font-size: 0.9rem;
+    }
+}
+
+.prevSearch > p:first-child {
+    font-weight: 600;
+    color: var(--color-text-light);
+    font-size: 0.9rem;
+}
+
+.bar-search {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: var(--color-hover);
+    padding: 12px 15px;
+    border-radius: var(--border-radius);
+    border: 1px solid var(--color-border);
+}
+
+.bar-search > div:first-child p {
+    font-weight: 500;
+    text-transform: capitalize;
+}
+
+.buttonAdd {
+    display: grid;
+    place-content: center;
+}
+
+.buttonAdd button {
+    padding: 8px 20px;
+    background: var(--color-secondary);
+    color: white;
+    border: none;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    font-weight: 500;
+    transition: var(--transition);
+}
+
+.buttonAdd button:hover {
+    background: #2980b9;
+    transform: scale(1.05);
+}

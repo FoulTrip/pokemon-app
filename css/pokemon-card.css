@@ -1,0 +1,307 @@
+/* Estilos para las tarjetas de Pokémon */
+.listPokes {
+    display: flex;
+    flex-basis: 100%;
+    width: 100%;
+}
+
+.poke-list-container {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-md);
+    width: 100%;
+}
+
+.poke-item {
+    background: white;
+    border: 2px solid var(--color-border);
+    border-radius: var(--border-radius);
+    padding: var(--spacing-md);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: var(--spacing-md);
+    transition: var(--transition);
+    box-shadow: 0 2px 4px var(--color-shadow);
+}
+
+/* Responsive: en móviles se muestra en columna */
+@media (max-width: 600px) {
+    .poke-item {
+        flex-direction: column;
+        text-align: center;
+        padding: var(--spacing-sm);
+    }
+
+    .poke-item img {
+        width: 80px;
+        height: 80px;
+    }
+
+    .poke-item h3 {
+        font-size: 1.1rem;
+    }
+
+    .poke-item p {
+        font-size: 0.85rem;
+    }
+
+    .poke-abilities p {
+        font-size: 0.8rem;
+    }
+
+    .poke-stats h4 {
+        font-size: 0.9rem;
+    }
+
+    .stat-bar {
+        flex-direction: column;
+        gap: 2px;
+        align-items: stretch;
+    }
+
+    .stat-bar span {
+        min-width: auto;
+        text-align: left;
+    }
+
+    .btn-invoke {
+        width: 100%;
+        padding: 10px;
+    }
+
+    .btn-remove {
+        margin-top: var(--spacing-xs);
+    }
+}
+
+.poke-item:hover {
+    transform: translateX(5px);
+    box-shadow: 0 8px 16px var(--color-shadow);
+    border-color: var(--color-secondary);
+}
+
+.poke-item img {
+    width: 100px;
+    height: 100px;
+    object-fit: contain;
+    background: linear-gradient(135deg, #f5f5f5 0%, #e9e9e9 100%);
+    border-radius: 50%;
+    padding: var(--spacing-sm);
+    flex-shrink: 0;
+}
+
+.poke-item-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-sm);
+}
+
+.poke-info {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+}
+
+.poke-abilities {
+    padding: var(--spacing-xs);
+    background: #f0f8ff;
+    border-radius: 5px;
+    border-left: 3px solid var(--color-secondary);
+}
+
+.poke-abilities p {
+    margin: 0;
+    font-size: 0.85rem;
+    text-transform: capitalize;
+}
+
+.poke-stats {
+    margin-top: var(--spacing-xs);
+}
+
+.poke-stats h4 {
+    font-size: 0.95rem;
+    color: var(--color-primary);
+    margin: 0 0 var(--spacing-xs) 0;
+    font-weight: 600;
+}
+
+.stat-bar {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-xs);
+    margin-bottom: 5px;
+}
+
+.stat-bar span {
+    font-weight: 600;
+    font-size: 0.8rem;
+    min-width: 40px;
+    color: var(--color-text);
+}
+
+.stat-bar .bar {
+    flex: 1;
+    height: 18px;
+    background: #e0e0e0;
+    border-radius: 10px;
+    overflow: hidden;
+    position: relative;
+}
+
+.stat-bar .fill {
+    height: 100%;
+    background: linear-gradient(90deg, #3498db, #2980b9);
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding-right: 5px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: white;
+    transition: width 0.5s ease;
+    min-width: 30px;
+}
+
+.poke-item h3 {
+    color: var(--color-primary);
+    font-size: 1.3rem;
+    font-weight: 600;
+    text-transform: capitalize;
+    margin: 0 0 5px 0;
+}
+
+.poke-item p {
+    margin: 2px 0;
+    font-size: 0.9rem;
+    color: var(--color-text-light);
+    text-align: left;
+}
+
+@media (max-width: 600px) {
+    .poke-item p {
+        text-align: center;
+    }
+}
+
+.poke-item p strong {
+    color: var(--color-text);
+    font-weight: 600;
+}
+
+/* Mensaje de carga */
+.poke-list-container > p {
+    text-align: center;
+    padding: var(--spacing-lg);
+    color: var(--color-text-light);
+    font-size: 1.1rem;
+}
+
+/* Botón Invocar */
+.btn-invoke {
+    padding: 10px 20px;
+    background-color: var(--color-secondary);
+    color: white;
+    border: none;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 0.9rem;
+    transition: var(--transition);
+    flex-shrink: 0;
+}
+
+.btn-invoke:hover {
+    background-color: #2980b9;
+    transform: scale(1.05);
+}
+
+.btn-invoke:active {
+    transform: scale(0.98);
+}
+
+/* Lista de invocados */
+.listInvoked {
+    display: flex;
+    flex-basis: 100%;
+    width: 100%;
+}
+
+.invoked-item {
+    background: #f8f9fa;
+    border-color: var(--color-secondary);
+}
+
+/* Botón eliminar (X) en invocados */
+.btn-remove {
+    width: 35px;
+    height: 35px;
+    background-color: #e74c3c;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 1.2rem;
+    transition: var(--transition);
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn-remove:hover {
+    background-color: #c0392b;
+    transform: scale(1.1);
+}
+
+.btn-remove:active {
+    transform: scale(0.95);
+}
+
+/* Mensaje vacío */
+.empty-message {
+    font-style: italic;
+    color: var(--color-text-light);
+}
+
+/* Headers de listas */
+.list-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: var(--spacing-sm);
+    padding: var(--spacing-sm) 0;
+    border-bottom: 2px solid var(--color-border);
+}
+
+.list-header h2 {
+    font-size: 1.4rem;
+    color: var(--color-primary);
+    font-weight: 600;
+    margin: 0;
+}
+
+.btn-clear {
+    padding: 8px 15px;
+    background-color: #e74c3c;
+    color: white;
+    border: none;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    font-weight: 500;
+    font-size: 0.85rem;
+    transition: var(--transition);
+}
+
+.btn-clear:hover {
+    background-color: #c0392b;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px var(--color-shadow);
+}
+
+.btn-clear:active {
+    transform: translateY(0);
+}

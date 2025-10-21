@@ -1,0 +1,273 @@
+/* Estilos para el sistema de combate */
+
+/* Botones del header */
+.header-buttons {
+    display: flex;
+    gap: var(--spacing-sm);
+    align-items: center;
+}
+
+.btn-battle {
+    padding: 8px 15px;
+    background-color: #e67e22;
+    color: white;
+    border: none;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 0.9rem;
+    transition: var(--transition);
+}
+
+.btn-battle:hover {
+    background-color: #d35400;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px var(--color-shadow);
+}
+
+.btn-battle:active {
+    transform: translateY(0);
+}
+
+/* Modal */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    animation: fadeIn 0.3s ease;
+}
+
+.modal.show {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.modal-content {
+    background-color: white;
+    padding: var(--spacing-lg);
+    border-radius: 15px;
+    max-width: 800px;
+    width: 90%;
+    max-height: 90vh;
+    overflow-y: auto;
+    position: relative;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+    animation: slideDown 0.4s ease;
+}
+
+@keyframes slideDown {
+    from {
+        transform: translateY(-50px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.close:hover,
+.close:focus {
+    color: #000;
+    transform: scale(1.2);
+}
+
+/* Contenido del resultado de batalla */
+#battleResult {
+    margin-top: var(--spacing-md);
+}
+
+.battle-arena {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin: var(--spacing-lg) 0;
+    flex-wrap: wrap;
+    gap: var(--spacing-md);
+}
+
+.fighter {
+    text-align: center;
+    padding: var(--spacing-md);
+    border-radius: var(--border-radius);
+    background: #f8f9fa;
+    border: 3px solid var(--color-border);
+    min-width: 200px;
+    transition: var(--transition);
+}
+
+.fighter.winner {
+    border-color: #27ae60;
+    background: #d5f4e6;
+    box-shadow: 0 0 20px rgba(39, 174, 96, 0.3);
+}
+
+.fighter.loser {
+    border-color: #e74c3c;
+    background: #fadbd8;
+    opacity: 0.7;
+}
+
+.fighter img {
+    width: 120px;
+    height: 120px;
+    object-fit: contain;
+}
+
+.fighter h3 {
+    margin: var(--spacing-sm) 0;
+    color: var(--color-primary);
+    font-size: 1.3rem;
+}
+
+.fighter-stats {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    margin-top: var(--spacing-sm);
+    text-align: left;
+}
+
+.fighter-stats p {
+    font-size: 0.9rem;
+    margin: 2px 0;
+}
+
+.vs-text {
+    font-size: 3rem;
+    font-weight: bold;
+    color: var(--color-primary);
+    animation: pulse 1s infinite;
+}
+
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+}
+
+.battle-log {
+    margin-top: var(--spacing-lg);
+    padding: var(--spacing-md);
+    background: #ecf0f1;
+    border-radius: var(--border-radius);
+    max-height: 300px;
+    overflow-y: auto;
+}
+
+.battle-log h3 {
+    color: var(--color-primary);
+    margin-bottom: var(--spacing-sm);
+}
+
+.battle-log p {
+    margin: 5px 0;
+    padding: 5px;
+    background: white;
+    border-radius: 5px;
+    font-size: 0.9rem;
+}
+
+.battle-log .attack {
+    color: #e74c3c;
+    font-weight: 600;
+}
+
+.battle-log .damage {
+    color: #c0392b;
+}
+
+.winner-announcement {
+    text-align: center;
+    margin-top: var(--spacing-lg);
+    padding: var(--spacing-md);
+    background: linear-gradient(135deg, #f39c12, #e67e22);
+    color: white;
+    border-radius: var(--border-radius);
+    font-size: 1.5rem;
+    font-weight: bold;
+    animation: bounceIn 0.6s ease;
+}
+
+@keyframes bounceIn {
+    0% {
+        transform: scale(0);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+.no-battle {
+    text-align: center;
+    padding: var(--spacing-lg);
+    color: var(--color-text-light);
+}
+
+.no-battle p {
+    font-size: 1.1rem;
+    margin: var(--spacing-sm) 0;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .header-buttons {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .btn-battle {
+        width: 100%;
+    }
+
+    .modal-content {
+        padding: var(--spacing-md);
+        width: 95%;
+    }
+
+    .battle-arena {
+        flex-direction: column;
+    }
+
+    .vs-text {
+        font-size: 2rem;
+    }
+
+    .fighter {
+        width: 100%;
+    }
+
+    .winner-announcement {
+        font-size: 1.2rem;
+    }
+}
