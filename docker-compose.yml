@@ -1,0 +1,15 @@
+services:
+  pokemon-battle-app:
+    build: .
+    ports:
+      - "8080:8080"
+    container_name: pokemon-battle-app
+    restart: unless-stopped
+    environment:
+      - PORT=8080
+    networks:
+      - pokemon-network
+
+networks:
+  pokemon-network:
+    driver: bridge

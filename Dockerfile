@@ -1,14 +1,14 @@
-# Dockerfile para desarrollo con hot reload
-FROM node:20-alpine
+# Dockerfile para producción (compatible con Google Cloud Run)
+FROM nginx:alpine
 
-# Instalar un servidor HTTP simple con hot reload
-RUN npm install -g live-server
+# Copiar archivos estáticos al directorio de nginx
+COPY . /usr/share/nginx/html
 
-# Establecer directorio de trabajo
-WORKDIR /app
+# Copiar configuración personalizada de nginx
+COPY nginx.conf /etc/nginx/nginx.conf
 
-# Exponer puerto 8080 (puerto por defecto de live-server)
+# Exponer puerto (Cloud Run asigna dinámicamente)
 EXPOSE 8080
 
-# Comando para iniciar live-server con hot reload
-CMD ["live-server", "--host=0.0.0.0", "--port=8080", "--no-browser", "--watch=."]
+# Comando por defecto de nginx
+CMD ["nginx", "-g", "daemon off;"]
